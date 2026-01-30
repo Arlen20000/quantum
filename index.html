@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quantum EC - Next Gen Education</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --quantum-primary: #6366f1;
+      --quantum-secondary: #2dd4bf;
+    }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+      background: #020617;
+      color: #f8fafc;
+    }
+    /* Animated Quantum Background */
+    .quantum-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: radial-gradient(circle at 50% 50%, #0f172a 0%, #020617 100%);
+      overflow: hidden;
+    }
+    .particle {
+      position: absolute;
+      background: linear-gradient(45deg, var(--quantum-primary), var(--quantum-secondary));
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.15;
+      animation: float 20s infinite alternate ease-in-out;
+    }
+    @keyframes float {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(100px, 100px) scale(1.5); }
+    }
+    /* Glassmorphism */
+    .glass-panel {
+      background: rgba(15, 23, 42, 0.7);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .glass-card:hover {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: var(--quantum-primary);
+      transform: translateY(-5px);
+    }
+    .text-gradient {
+      background: linear-gradient(to right, #2dd4bf, #6366f1, #a855f7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #020617; }
+    ::-webkit-scrollbar-thumb {
+      background: #1e293b;
+      border-radius: 10px;
+    }
+  </style>
+<script type="importmap">
+{
+  "imports": {
+    "lucide-react": "https://esm.sh/lucide-react@^0.563.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.13.0",
+    "@google/genai": "https://esm.sh/@google/genai@^1.38.0"
+  }
+}
+</script>
+</head>
+<body>
+  <div class="quantum-bg">
+    <div class="particle" style="width: 400px; height: 400px; top: -100px; left: -100px;"></div>
+    <div class="particle" style="width: 300px; height: 300px; bottom: -50px; right: -50px; animation-delay: -5s;"></div>
+  </div>
+  <div id="root"></div>
+</body>
+</html>
